@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Trivia 💡</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Love Trivia 💡</h2>
+        <p>Answer the love-themed trivia question correctly to proceed!</p>
+        <p id="trivia-question">What's my favorite chocolate? (hint: o*** c******)</p>
+        <input type="text" id="trivia-input" placeholder="Your Answer">
+        <button id="trivia-submit">Submit</button>
+        <p id="trivia-feedback"></p>
+        <a href="scramble.html" class="button hidden" id="next-trivia">Next Game</a>
+    </div>
+
+    <script>
+        document.getElementById("trivia-submit").addEventListener("click", function() {
+            const answer = document.getElementById("trivia-input").value.trim().toLowerCase();
+            const correctAnswers = ["cadbury oreo", "oreo cadbury"];
+            
+            if (correctAnswers.includes(answer)) {
+                document.getElementById("trivia-feedback").textContent = "Correct!";
+                document.getElementById("next-trivia").classList.remove("hidden");
+            } else {
+                document.getElementById("trivia-feedback").textContent = "Try again!";
+            }
+        });
+    </script>
+</body>
+</html>
